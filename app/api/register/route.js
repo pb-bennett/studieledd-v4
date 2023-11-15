@@ -18,7 +18,7 @@ export async function POST(req) {
       );
     } else {
       const savedUser = await new User({
-        username: name,
+        name,
         email,
         password: await bcrypt.hash(password, 10),
       }).save();
