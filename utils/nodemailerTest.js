@@ -2,11 +2,7 @@ const nodemailer = require("nodemailer");
 const aws = require("aws-sdk");
 
 // Configure AWS SES
-aws.config.update({
-  accessKeyId: "AKIA4LKPDIABQNHKAH4Y",
-  secretAccessKey: "Ugj9OSMQ+gC4zHUUzalaNAV8g93NWUpJSyZfDl5G",
-  region: "eu-north-1", // e.g., 'us-east-1'
-});
+aws.config.update({});
 
 // Create Nodemailer transporter using AWS SES
 const transporter = nodemailer.createTransport({
