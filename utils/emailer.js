@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 import aws from "aws-sdk";
 import User from "@/models/user";
 import bcrypt from "bcrypt";
+import randomstring from "randomstring";
 
 aws.config.update({
   // move to .env
@@ -14,7 +15,8 @@ export const sendEmail = async ({ email, emailType, userId }) => {
   try {
     // create a hased token
 
-    const hashedToken = await bcrypt.hash(userId.toString(), 10);
+    // const hashedToken = await bcrypt.hash(userId.toString(), 10);
+    const hashedToken = await randomstring.generate({ length: 64 });
 
     if (emailType === "VERIFY") {
       await User.findByIdAndUpdate(userId, {
