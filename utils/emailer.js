@@ -6,9 +6,9 @@ import randomstring from "randomstring";
 
 aws.config.update({
   // move to .env
-  accessKeyId: "AKIA4LKPDIABQNHKAH4Y",
-  secretAccessKey: "Ugj9OSMQ+gC4zHUUzalaNAV8g93NWUpJSyZfDl5G",
-  region: "eu-north-1", // e.g., 'us-east-1'
+  accessKeyId: process.env.IAM_API_KEY,
+  secretAccessKey: process.env.IAM_SECRET,
+  region: process.env.AWS_REGION,
 });
 
 export const sendEmail = async ({ email, emailType, userId }) => {
